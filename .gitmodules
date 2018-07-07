@@ -1,0 +1,9 @@
+[submodule "rapid-cli"]
+	path = rapid-cli
+	url = https://github.com/jmeyers91/rapid-cli
+[submodule "rapid-core"]
+	path = rapid-core
+	url = https://github.com/jmeyers91/rapid
+[submodule "rapid-template"]
+	path = rapid-template
+	url = https://github.com/jmeyers91/rapid-template
