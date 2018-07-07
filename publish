@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+
+module.exports = require('./rapid-core/publish')
+  .then(() => require('./rapid-cli/publish'))
+  .then(() => require('./rapid-template/publish'));

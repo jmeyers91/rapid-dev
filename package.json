@@ -1,0 +1,25 @@
+{
+  "name": "rapid-dev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmeyers91/rapid-dev.git"
+  },
+  "author": "James Meyers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmeyers91/rapid-dev/issues"
+  },
+  "homepage": "https://github.com/jmeyers91/rapid-dev#readme",
+  "devDependencies": {
+    "execa": "^0.10.0"
+  },
+  "dependencies": {
+    "then-fs": "^2.0.0"
+  }
+}
