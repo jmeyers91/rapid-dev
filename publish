@@ -1,5 +1,12 @@
 #!/usr/bin/env node
 
-module.exports = require('./rapid-core/publish')
-  .then(() => require('./rapid-cli/publish'))
-  .then(() => require('./rapid-template/publish'));
+const execa = require('execa');
+
+async function main() {
+  const coreVersion = await require('./rapid-core/publish');
+  const cliVersion = await require('./rapid-cli/publish');
+  const templateVersion = await require('./rapid-template/publish');
+  await execa('npm', ['install', '--global', `@simplej/rapid-cli@${cliVersion}`]);
+}
+
+main();
