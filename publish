@@ -1,16 +1,11 @@
 #!/usr/bin/env node
 
-const execa = require('execa');
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 async function main() {
-  const coreVersion = await require('./rapid-core/publish');
+  await require('./rapid-core/publish');
   await wait(3000);
-  const cliVersion = await require('./rapid-cli/publish');
-  await wait(3000);
-  const templateVersion = await require('./rapid-template/publish');
-  await wait(3000);
-  await execa('npm', ['install', '--global', `@simplej/rapid-cli@${cliVersion}`]);
+  await require('./rapid-template/publish');
 }
 
 main();
