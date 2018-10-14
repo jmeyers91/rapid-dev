@@ -7,3 +7,6 @@
 [submodule "rapid-template"]
 	path = rapid-template
 	url = https://github.com/jmeyers91/rapid-template
+[submodule "rapid-plop"]
+	path = rapid-plop
+	url = https://github.com/jmeyers91/rapid-plop
