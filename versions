@@ -1,0 +1,38 @@
+#!/usr/bin/env node
+
+const core = require('./rapid-core/package.json');
+const cli = require('./rapid-cli/package.json');
+const template = require('./rapid-template/package.json');
+const plop = require('./rapid-plop/package.json');
+
+const packages = [core, cli, template, plop].map(package => {
+  package.name = package.name.replace('@simplej/', '');
+  return package;
+});
+const [ longestNamedPackage ] = packages.sort((a, b) => b.name.length - a.name.length);
+const packageRows = packages.map(package =>
+  padRight(package.name, longestNamedPackage.name.length) + ' ' + package.version
+);
+
+console.log(packageRows.join('\n') + '\n')
+
+const templateCoreVersion = template.dependencies['@simplej/rapid'].replace('^', '');
+const templateCliVersion = template.dependencies['@simplej/rapid-cli'].replace('^', '');
+const templatePlopVersion = template.dependencies['@simplej/rapid-plop'].replace('^', '');
+
+if(templateCoreVersion !== core.version) {
+  console.log(`Template @simplej/rapid is out of date ${templateCoreVersion} -> ${core.version}`);
+}
+
+if(templateCliVersion !== cli.version) {
+  console.log(`Template @simplej/rapid-cli is out of date ${templateCliVersion} -> ${cli.version}`);
+}
+
+if(templatePlopVersion !== plop.version) {
+  console.log(`Template @simplej/rapid-plop is out of date ${templatePlopVersion} -> ${plop.version}`);
+}
+
+function padRight(string, minLength, padChar=' ') {
+  while(string.length < minLength) string = string + padChar;
+  return string;
+}
