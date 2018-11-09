@@ -16,3 +16,7 @@ npm install
 cd ../rapid-template
 npm install
 ```
+
+## License
+
+Rapid is [MIT licensed](./LICENSE).
